@@ -14,3 +14,10 @@ build:
 .PHONY: run
 run:
 	@./$(BUILD_DIR)/$(TARGET)
+
+.PHONY: clean
+clean:
+	@rm -rf $(BUILD_DIR)/*
+
+.PHONY: build_run
+build_run: build run
