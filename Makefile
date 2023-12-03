@@ -1,15 +1,17 @@
 ASSEMBLY:= Engine/src
 BUILD_DIR:= bin
-TARGET:= main
+TARGET:= app
 
 COMPILER_FLAGS:= -std=c++20
-INCLUDE_FLAGS:= -IEngine/src -I$(VULKAN_SDK)/include -I$(VULKAN_SDK)/lib
+INCLUDE_FLAGS:= -IExternal/include -LExternal/lib -I$(VULKAN_SDK)/include -L$(VULKAN_SDK)/lib
 LINKER_FLAGS:= -lvulkan
 SRC_FILES:= $(shell find $(ASSEMBLY) -type f \( -name "*.cpp" \))
 
+GLFWlib:= External/lib/libglfw.3.3.dylib
+
 .PHONY: build
 build:
-	@clang++ $(COMPILER_FLAGS) $(INCLUDE_FLAGS) $(LINKER_FLAGS) $(SRC_FILES) -o $(BUILD_DIR)/$(TARGET)
+	@clang++ $(COMPILER_FLAGS) $(INCLUDE_FLAGS) $(LINKER_FLAGS) $(SRC_FILES) $(GLFWlib) -o $(BUILD_DIR)/$(TARGET)
 
 .PHONY: run
 run:
