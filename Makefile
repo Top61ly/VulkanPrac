@@ -2,8 +2,8 @@ ASSEMBLY:= Engine/src
 BUILD_DIR:= bin
 TARGET:= app
 
-COMPILER_FLAGS:= -std=c++20
-INCLUDE_FLAGS:= -IExternal/include -LExternal/lib -I$(VULKAN_SDK)/include -L$(VULKAN_SDK)/lib
+COMPILER_FLAGS:= -std=c++17
+INCLUDE_FLAGS:= -IExternal/include -LExternal/lib -I$(VULKAN_SDK)/include -L$(VULKAN_SDK)/lib -IEngine/src
 LINKER_FLAGS:= -lvulkan
 SRC_FILES:= $(shell find $(ASSEMBLY) -type f \( -name "*.cpp" \))
 

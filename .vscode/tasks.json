@@ -1,0 +1,33 @@
+{
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "C/C++: clang++ build",
+            "command": "/usr/bin/clang++",
+            "args": [
+                "-std=c++20",
+                "-g",
+                "-I${workspaceFolder}/External/include",
+                "-L${workspaceFolder}/External/lib",
+                "${workspaceFolder}/External/lib/libglfw.3.3.dylib",
+                "-I${workspaceFolder}/Engine/src",
+                "${workspaceFolder}/Engine/src/**/*.cpp",
+                "-lvulkan",
+                "-o",
+                "${workspaceFolder}/bin/app"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "custom build"
+        }
+    ],
+    "version": "2.0.0"
+}

@@ -12,6 +12,7 @@ int main()
     {
         vkManager.init();
         vkManager.run();
+        vkManager.cleanup();
     }
     catch (const std::exception& e)
     {
