@@ -47,6 +47,11 @@ private:
     void _createCommandBuffers();
     void _createSemaphores();
     void _createSyncObjects();
+
+    void _createBuffer(VkDeviceSize size, VkBufferUsageFlags usage, VkMemoryPropertyFlags properties, VkBuffer &buffer, VkDeviceMemory &bufferMemory);
+    void _copyBuffer(VkBuffer srcBuffer, VkBuffer dstBuffer, VkDeviceSize size);
+    void _createVertexBuffer();
+
     void _drawFrame();
     void _recordCommandBuffer(VkCommandBuffer commandBuffer, uint32_t imageIndex);
 private:
@@ -87,4 +92,7 @@ private:
     VkSemaphore m_imageAvailableSemaphore = VK_NULL_HANDLE;
     VkSemaphore m_renderFinishedSemaphore = VK_NULL_HANDLE;
     VkFence m_inFlightFence;
+
+    VkBuffer m_vertexBuffer;
+    VkDeviceMemory m_vertexBufferMemory;
 };
